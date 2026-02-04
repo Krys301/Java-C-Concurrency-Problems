@@ -1,36 +1,53 @@
-# Java Concurrency Problems — Dining Philosophers
+  <p><b><h1>Dining Philosophers (Java Concurrency)</h1></b><br>
+  Multiple implementations of the classic Dining Philosophers synchronization problem using Java threads and semaphores. 
+  Focused on understanding deadlock, resource contention, and practical deadlock-prevention strategies.</p>
 
-This repository contains multiple implementations of the classic **Dining Philosophers** concurrency problem in **Java**, focusing on synchronization correctness and deadlock prevention strategies.
+  <hr>
 
-## 🧠 Objective
-Model philosophers (threads) competing for shared resources (forks/chopsticks) and implement solutions that avoid deadlock while maintaining correct multithreaded execution.
+  <p><b>✅ Solution 1: Baseline (Deadlock-Prone)</b><br>
+  Each philosopher attempts to pick up the left fork then the right fork. This naive implementation can cause circular wait, leading to a deadlock where all philosophers hold one fork and wait forever.</p>
 
-## ✅ Implementations Included
-- **Baseline (deadlock-prone)**  
-  Demonstrates the classic deadlock scenario when all philosophers acquire forks in the same order.  
-  [![View Dining Philosophers](https://img.shields.io/badge/View%20Code-Dining%20Philosophers-blue?style=for-the-badge)]([https://github.com/Krys301/Java-C-Concurrency-Problems-/blob/main/DiningPhilosophers1_Waiter.java](https://github.com/Krys301/Java-C-Concurrency-Problems/blob/main/src/DiningPhilosophers_Baseline.java))
+  <p><b>What I learned:</b> How deadlock forms in real systems and why simply using locks without a strategy can break multithreaded programs.</p>
 
+  <a href="src/DiningPhilosophers_Baseline.java">
+    <img src="https://img.shields.io/badge/🔗_View_Baseline_Code-black?style=for-the-badge" alt="Baseline Code"/>
+  </a>
 
-- **Waiter / Butler solution (Semaphore N−1)**  
-  Uses a semaphore to limit the number of philosophers attempting to eat simultaneously, preventing circular wait.  
-  → [`DiningPhilosophers_Waiter.java`](DiningPhilosophers_Waiter.java)
+  <hr>
 
-- **Odd/Even fork ordering solution**  
-  Breaks circular wait by enforcing different fork pickup order depending on philosopher index.  
-  → [`DiningPhilosophers_Order.java`](DiningPhilosophers_Order.java)
+  <p><b>✅ Solution 2: Waiter / Butler (Semaphore N−1)</b><br>
+  Introduces a “waiter” semaphore that limits the number of philosophers allowed to attempt to eat at once (e.g., 4 out of 5). 
+  This prevents circular waiting and guarantees progress, eliminating deadlock.</p>
 
-- **Mutex + shared state solution**  
-  Uses a mutex to protect a shared representation of chopstick availability.  
-  → [`DiningPhilosophers_Mutex.java`](DiningPhilosophers_Mutex.java)
+  <p><b>What I learned:</b> How semaphores can enforce safe global constraints, and why limiting concurrent resource acquisition prevents deadlock.</p>
 
-## 🛠️ Tech Stack
-- Java
-- Threads
-- Semaphores / synchronization primitives
+  <a href="src/DiningPhilosophers_Waiter.java">
+    <img src="https://img.shields.io/badge/🔗_View_Waiter_Solution-green?style=for-the-badge" alt="Waiter Solution"/>
+  </a>
 
-## ▶️ How to Run
-Compile and run a chosen version:
+  <hr>
 
-```bash
-javac DiningPhilosophers_Waiter.java
-java DiningPhilosophers
+  <p><b>✅ Solution 3: Odd/Even Fork Ordering</b><br>
+  Breaks the deadlock cycle by changing the order forks are picked up. 
+  For example, odd-numbered philosophers pick up the right fork first, while even-numbered philosophers pick up the left fork first. 
+  This prevents circular wait by removing the possibility of a complete lock cycle.</p>
+
+  <p><b>What I learned:</b> Deadlock prevention through ordering policies and how small protocol changes can guarantee system safety.</p>
+
+  <a href="src/DiningPhilosophers_Order.java">
+    <img src="https://img.shields.io/badge/🔗_View_Odd%2FEven_Solution-orange?style=for-the-badge" alt="Odd Even Solution"/>
+  </a>
+
+  <hr>
+
+  <p><b>✅ Solution 4: Mutex + Shared State</b><br>
+  Uses a shared data structure to track chopstick availability and protects it using a mutex semaphore. 
+  This ensures updates to shared state remain consistent and thread-safe during concurrent execution.</p>
+
+  <p><b>What I learned:</b> How to guard shared memory correctly, and the importance of atomic updates in multithreaded programs.</p>
+
+  <a href="src/DiningPhilosophers_Mutex.java">
+    <img src="https://img.shields.io/badge/🔗_View_Mutex_Solution-red?style=for-the-badge" alt="Mutex Solution"/>
+  </a>
+
+</div>
