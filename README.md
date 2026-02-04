@@ -8,7 +8,7 @@ Model philosophers (threads) competing for shared resources (forks/chopsticks) a
 ## ✅ Implementations Included
 - **Baseline (deadlock-prone)**  
   Demonstrates the classic deadlock scenario when all philosophers acquire forks in the same order.  
-  [![View Dining Philosophers](https://img.shields.io/badge/View%20Code-Dining%20Philosophers-blue?style=for-the-badge)](https://github.com/Krys301/Java-C-Concurrency-Problems-/blob/main/DiningPhilosophers1_Waiter.java)
+  [![View Dining Philosophers](https://img.shields.io/badge/View%20Code-Dining%20Philosophers-blue?style=for-the-badge)]([https://github.com/Krys301/Java-C-Concurrency-Problems-/blob/main/DiningPhilosophers1_Waiter.java](https://github.com/Krys301/Java-C-Concurrency-Problems/blob/main/src/DiningPhilosophers_Baseline.java))
 
 
 - **Waiter / Butler solution (Semaphore N−1)**  
