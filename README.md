@@ -1,6 +1,8 @@
-  <p><b><h1>Dining Philosophers (Java Concurrency)</h1></b><br>
-  Multiple implementations of the classic Dining Philosophers synchronization problem using Java threads and semaphores. 
+  <p><b><h1>Dining Philosophers (C++ Concurrency)</h1></b><br>
+  Multiple implementations of the classic Dining Philosophers synchronization problem using C++ threads (std::thread) and semaphores. 
   Focused on understanding deadlock, resource contention, and practical deadlock-prevention strategies.</p>
+
+  <p>Build with CMake: <code>cmake -B build && cmake --build build</code> (requires a C++17 compiler with thread support). This produces four executables: <code>dining_philosophers_baseline</code>, <code>dining_philosophers_waiter</code>, <code>dining_philosophers_order</code>, <code>dining_philosophers_mutex</code>.</p>
 
   <hr>
 
@@ -9,7 +11,7 @@
 
   <p><b>What I learned:</b> How deadlock forms in real systems and why simply using locks without a strategy can break multithreaded programs.</p>
 
-  <a href="src/DiningPhilosophers_Baseline.java">
+  <a href="src/DiningPhilosophers_Baseline.cpp">
     <img src="https://img.shields.io/badge/🔗_View_Baseline_Code-black?style=for-the-badge" alt="Baseline Code"/>
   </a>
 
@@ -21,7 +23,7 @@
 
   <p><b>What I learned:</b> How semaphores can enforce safe global constraints, and why limiting concurrent resource acquisition prevents deadlock.</p>
 
-  <a href="src/DiningPhilosophers_Waiter.java">
+  <a href="src/DiningPhilosophers_Waiter.cpp">
     <img src="https://img.shields.io/badge/🔗_View_Waiter_Solution-green?style=for-the-badge" alt="Waiter Solution"/>
   </a>
 
@@ -34,7 +36,7 @@
 
   <p><b>What I learned:</b> Deadlock prevention through ordering policies and how small protocol changes can guarantee system safety.</p>
 
-  <a href="src/DiningPhilosophers_Order.java">
+  <a href="src/DiningPhilosophers_Order.cpp">
     <img src="https://img.shields.io/badge/🔗_View_Odd%2FEven_Solution-orange?style=for-the-badge" alt="Odd Even Solution"/>
   </a>
 
@@ -46,7 +48,7 @@
 
   <p><b>What I learned:</b> How to guard shared memory correctly, and the importance of atomic updates in multithreaded programs.</p>
 
-  <a href="src/DiningPhilosophers_Mutex.java">
+  <a href="src/DiningPhilosophers_Mutex.cpp">
     <img src="https://img.shields.io/badge/🔗_View_Mutex_Solution-red?style=for-the-badge" alt="Mutex Solution"/>
   </a>
 
